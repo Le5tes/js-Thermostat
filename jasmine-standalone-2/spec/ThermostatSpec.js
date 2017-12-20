@@ -16,6 +16,21 @@ describe("Thermostat", function(){
       thermostat.increaseTemperature();
       expect(thermostat.temperature()).toBe(21);
     });
+    it("should not set the temperature above 25 degrees when power saver is on", function(){
+      //power saver on by default
+      thermostat.currentTemperature = 25;
+      expect(function() { thermostat.increaseTemperature()} ).toThrowError("Max Temperature Reached!"); 
+    });
+    it("should be able to set the temperature above 25 degrees when power saver is off", function(){
+      thermostat.setPowerSaver(false);
+      thermostat.currentTemperature = 25;
+      expect(function() { thermostat.increaseTemperature()} ).not.toThrowError("Max Temperature Reached!"); 
+    });
+    it("should not set the temperature above 25 degrees when power saver is on", function(){
+      thermostat.setPowerSaver(false);
+      thermostat.currentTemperature = 32;
+      expect(function() { thermostat.increaseTemperature()} ).toThrowError("Max Temperature Reached!"); 
+    });
   });
 
   describe("#decreaseTemperature", function(){
@@ -27,9 +42,7 @@ describe("Thermostat", function(){
     it("should not set temperature below 10 degrees", function(){
       for(i=1; i<=10; i++) {
         thermostat.decreaseTemperature();
-        console.log(thermostat.temperature());
       };
-      console.log(thermostat.temperature());
       expect(function() { thermostat.decreaseTemperature()} ).toThrowError("Min Temperature Reached!");
     });
 
