@@ -1,5 +1,6 @@
 function Thermostat(){
   this.currentTemperature = 20
+  this.MINIMUM_TEMPERATURE = 10
   this.powerSaver = true
 };
 
@@ -21,7 +22,7 @@ Thermostat.prototype.increaseTemperature = function() {
 };
 
 Thermostat.prototype.decreaseTemperature = function() {
-  if(this.currentTemperature <= 10){
+  if(this.currentTemperature <= this.MINIMUM_TEMPERATURE){
     throw(new Error("Min Temperature Reached!"));
   };
   this.currentTemperature --

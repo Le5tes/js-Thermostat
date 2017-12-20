@@ -46,7 +46,7 @@ describe("Thermostat", function() {
     });
 
     it("should not set temperature below 10 degrees", function() {
-      for (i = 1; i <= 10; i++) {
+      for (i = 1; i <= thermostat.MINIMUM_TEMPERATURE; i++) {
         thermostat.decreaseTemperature();
       };
       expect(function() {
