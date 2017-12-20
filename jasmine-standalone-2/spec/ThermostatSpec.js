@@ -23,6 +23,16 @@ describe("Thermostat", function(){
   	  thermostat.decreaseTemperature();
   	  expect(thermostat.temperature()).toBe(19);
   	});
+
+    it("should not set temperature below 10 degrees", function(){
+      for(i=1; i<=10; i++) {
+        thermostat.decreaseTemperature();
+        console.log(thermostat.temperature());
+      };
+      console.log(thermostat.temperature());
+      expect(function() { thermostat.decreaseTemperature()} ).toThrowError("Min Temperature Reached!");
+    });
+
   });
 
-});
+  });

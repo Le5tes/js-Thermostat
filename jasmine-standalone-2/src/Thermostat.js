@@ -12,5 +12,8 @@ Thermostat.prototype.increaseTemperature = function() {
 };
 
 Thermostat.prototype.decreaseTemperature = function() {
+  if(this.currentTemperature <= 10){
+    throw(new Error("Min Temperature Reached!"));
+  };
   this.currentTemperature --
 };
