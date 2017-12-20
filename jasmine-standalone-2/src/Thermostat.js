@@ -30,3 +30,19 @@ Thermostat.prototype.decreaseTemperature = function() {
 Thermostat.prototype.setPowerSaver = function(toggle) {
 	this.powerSaver = toggle
 };
+
+Thermostat.prototype.resetTemperature = function() {
+  this.currentTemperature = 20
+};
+
+Thermostat.prototype.energyUsage = function(){
+  if(this.currentTemperature < 18) {
+    return "low-usage";
+  }
+  else if(this.currentTemperature < 25) {
+    return "medium-usage";
+  }
+  else{
+    return "high-usage";
+  };
+};
