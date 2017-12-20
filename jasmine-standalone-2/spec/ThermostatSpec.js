@@ -7,7 +7,7 @@ describe("Thermostat", function() {
 
   describe("#temperature", function() {
     it("should start at 20", function() {
-      expect(thermostat.temperature()).toBe(20);
+      expect(thermostat.temperature()).toBe(thermostat.DEFAULT_TEMPERATURE);
     });
   });
 
@@ -59,7 +59,7 @@ describe("Thermostat", function() {
   describe("#resetTemperature", function() {
     it("should reset the temperature back to 20 degrees", function() {
       thermostat.resetTemperature();
-      expect(thermostat.temperature()).toBe(20);
+      expect(thermostat.temperature()).toBe(thermostat.DEFAULT_TEMPERATURE);
     });
   });
 
