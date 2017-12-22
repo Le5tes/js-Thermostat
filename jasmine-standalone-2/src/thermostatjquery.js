@@ -23,10 +23,19 @@ $("#ps").click(function(){
 	update();
 });
 
+getWeatherTemp()
+
 });
 
+getWeatherTemp = function() {
+	$.get(('http://api.openweathermap.org/data/2.5/weather?q=london,uk&appid='+API_KEY+'&units=metric'), function(data) {
+		$('#weatherTemp').html(data.main.temp + String.fromCharCode(176) + 'C');
+	});
+
+};
+
 update = function(){
-$("#temperature").html(thermostat.temperature());
+$("#temperature").html(thermostat.temperature() + String.fromCharCode(176) + 'C');
 $("#energyUsage").html(thermostat.energyUsage());
 };
 
@@ -35,6 +44,3 @@ toggle = function(){
 	tvalue = !tvalue;
 	return tvalue;
 };
-
-
-

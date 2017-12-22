@@ -4,11 +4,15 @@
   <script src= 'Thermostat.js' ></script>
   <script src= 'jquery-3.2.1.js' ></script>
   <script src= 'thermostatjquery.js'></script>
+  <script src= 'ENV.js'></script>
 </head>
 <body>
   <h1> Welcome to your thermostat control screen </h1>
+  <p> Outside temperature: </p>
+  <div id = 'weatherTemp'>Loading weather temperature...</div>
   <p>Current thermostat temperature: </p>
   <div id = 'temperature'>#thermostat.temperature </div>
+  <br>
   <form>
   	<input id="up" type= 'button' name = 'increaseTemperature' value = '+'>
   	<input id= "down" type= 'button' name = 'decreaseTemperature' value = '-'>
