@@ -1,0 +1,23 @@
+<html>
+<head>
+
+  <script src= 'Thermostat.js' ></script>
+  <script src= 'jquery-3.2.1.js' ></script>
+  <script src= 'thermostatjquery.js'></script>
+</head>
+<body>
+  <h1> Welcome to your thermostat control screen </h1>
+  <p>Current thermostat temperature: </p>
+  <div id = 'temperature'>#thermostat.temperature </div>
+  <form>
+  	<input id="up" type= 'button' name = 'increaseTemperature' value = '+'>
+  	<input id= "down" type= 'button' name = 'decreaseTemperature' value = '-'>
+    <input id= "reset" type= 'button' name = 'reset' value = 'reset'>
+  	<br>
+  	Power saver mode:
+  	<input id= "ps" type= 'checkbox' name = 'powerSaver' checked>
+  	<br>
+  	 Current energy usage: <div id = energyUsage>#thermostat.energyUsage </div>
+  </form>
+</body>
+</html>

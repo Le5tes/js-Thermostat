@@ -34,7 +34,14 @@ Thermostat.prototype.decreaseTemperature = function() {
 };
 
 Thermostat.prototype.setPowerSaver = function(toggle) {
-	this.powerSaver = toggle
+  this.powerSaver = toggle;
+  this.powerSaverCheck();
+};
+
+Thermostat.prototype.powerSaverCheck = function() {
+  if(this.powerSaver && this.temperature() > this.MAXIMUM_TEMPERATURE_PS_ON) {
+  	this.currentTemperature = this.MAXIMUM_TEMPERATURE_PS_ON
+  }
 };
 
 Thermostat.prototype.resetTemperature = function() {
@@ -42,10 +49,10 @@ Thermostat.prototype.resetTemperature = function() {
 };
 
 Thermostat.prototype.energyUsage = function(){
-  if(this.currentTemperature < this.MAXIMUM_TEMPERATURE_FOR_LOW_ENERGY_USAGE) {
+  if(this.currentTemperature <= this.MAXIMUM_TEMPERATURE_FOR_LOW_ENERGY_USAGE) {
     return "low-usage";
   }
-  else if(this.currentTemperature < this.MAXIMUM_TEMPERATURE_FOR_MEDIUM_ENERGY_USAGE) {
+  else if(this.currentTemperature <= this.MAXIMUM_TEMPERATURE_FOR_MEDIUM_ENERGY_USAGE) {
     return "medium-usage";
   }
   else{
